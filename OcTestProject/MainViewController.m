@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  OcTestProject
 //
 //  Created by X C on 2019/11/23.
 //  Copyright © 2019 X C. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

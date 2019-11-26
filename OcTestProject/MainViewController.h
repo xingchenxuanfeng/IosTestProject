@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  OcTestProject
 //
 //  Created by X C on 2019/11/23.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
 
 
 @end
