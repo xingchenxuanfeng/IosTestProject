@@ -10,5 +10,6 @@ target 'OcTestProject' do
   # Pods for OcTestProject
   pod 'Toast', '~> 4.0.0'
   pod 'AFNetworking', '~> 3.0'
+  pod 'Mantle', '~> 2.1.0'
 
 end

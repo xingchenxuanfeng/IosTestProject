@@ -7,9 +7,10 @@
 //
 
 #import "MyTableViewCell.h"
+#import "MyModel.h"
 
 @interface MyTableViewCell ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property(weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -31,4 +32,8 @@
     _label.text = data;
 }
 
+- (void)bindData:(MyResult *)result {
+    _label.text = [NSString stringWithFormat:
+            @"%li ,%@ ,%li ,%@", result.goodsID, result.productName, result.createTime, result.advanceFloatView.title];
+}
 @end

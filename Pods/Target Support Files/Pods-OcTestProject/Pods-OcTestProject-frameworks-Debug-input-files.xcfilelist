@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-OcTestProject/Pods-OcTestProject-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework
 ${BUILT_PRODUCTS_DIR}/Toast/Toast.framework

@@ -6,14 +6,18 @@
 //  Copyright © 2019 X C. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
+#import <Mantle/MTLJSONAdapter.h>
 #import "MyTableViewController.h"
 #import "MyTableViewCell.h"
+#import "MyModel.h"
 
 @interface MyTableViewController ()
 
 @end
 
 @implementation MyTableViewController
+MyModel *model;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +29,39 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellType1"];
+
+    self.initData;
+}
+
+- (void)initData {
+    NSLog(@"test1");
+    NSString *url = @"http://gw.kaola.com//gw/aftersale/user/refunds";
+    NSDictionary *dictionary = @{@"testKey1": @"testValue1", @"testKey2": @"testValue2"};
+    AFHTTPSessionManager *manager = AFHTTPSessionManager.manager;
+    manager.requestSerializer = AFJSONRequestSerializer.serializer;
+
+//    manager.responseSerializer = AFHTTPResponseSerializer.serializer;
+    manager.responseSerializer = AFJSONResponseSerializer.serializer;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+    NSURLSessionDataTask *task = [manager GET:url
+                                   parameters:dictionary
+                                     progress:^(NSProgress *downloadProgress) {
+                                         NSLog(@"test progress %@", downloadProgress);
+                                     }
+                                      success:^(NSURLSessionDataTask *task, id responseObject) {
+                                          NSLog(@"test task %@", task);
+//                                          NSLog(@"test responseObject %@", responseObject);
+//                                          [MTLJSONAdapter modelOfClass:NSObject.class fromJSONDictionary:responseObject error:nil];
+                                          model = [MyModel fromJSONDictionary:responseObject];
+                                          NSLog(@"responseObject %@", model);
+
+                                      }
+                                      failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                          NSLog(@"test task %@", task);
+                                          NSLog(@"test error %@", error);
+                                      }];
+    [task resume];
+    NSLog(@"test2");
 }
 
 #pragma mark - Table view data source
@@ -35,9 +72,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 5;
+        return 3;
     } else {
-        return 10;
+        return model.body.result.count;
     }
 }
 
@@ -45,7 +82,12 @@
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellType1" forIndexPath:indexPath];
     [cell bind:[NSString stringWithFormat:@"test %li %li", indexPath.section, indexPath.row]];
     // Configure the cell...
-
+    if (indexPath.section == 0) {
+        return cell;
+    }
+    NSArray<MyResult *> *array = model.body.result;
+    MyResult *curModel = array[(NSUInteger) indexPath.row];
+    [cell bindData:curModel];
     return cell;
 }
 

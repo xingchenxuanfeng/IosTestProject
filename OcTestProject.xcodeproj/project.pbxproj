@@ -24,6 +24,7 @@
 		57E1211F238A7584009DA333 /* SecondTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E1211E238A7584009DA333 /* SecondTabViewController.m */; };
 		57E12123238A86E9009DA333 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E12122238A86E9009DA333 /* ThirdViewController.m */; };
 		EEBC4FE36E876E36AA4C1A4A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EEBE6218F7C6F61FDC7C6876 /* .gitignore */; };
+		EEBE898F42756281BF24808E /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBDFA98E2236DE01D25BA14 /* MyModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		57E12122238A86E9009DA333 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		9883F52DA3743E6E05749221 /* Pods_OcTestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OcTestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0696E37A9C08C41CC282DD7 /* Pods-OcTestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OcTestProject.debug.xcconfig"; path = "Target Support Files/Pods-OcTestProject/Pods-OcTestProject.debug.xcconfig"; sourceTree = "<group>"; };
+		EEBADF758D0D3E563F700E28 /* MyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
+		EEBDFA98E2236DE01D25BA14 /* MyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
 		EEBE6218F7C6F61FDC7C6876 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		FB4A938C6B443CD54BEC54F1 /* Pods-OcTestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OcTestProject.release.xcconfig"; path = "Target Support Files/Pods-OcTestProject/Pods-OcTestProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +148,8 @@
 				57C28940238AABB80000CAE9 /* MyTableViewController.h */,
 				57C28941238AABB80000CAE9 /* MyTableViewController.m */,
 				57C28942238AABB80000CAE9 /* MyTableViewController.xib */,
+				EEBDFA98E2236DE01D25BA14 /* MyModel.m */,
+				EEBADF758D0D3E563F700E28 /* MyModel.h */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				570AE3AE2389769A00C29753 /* main.m in Sources */,
 				570AE3A02389769800C29753 /* SceneDelegate.m in Sources */,
 				57C28943238AABB80000CAE9 /* MyTableViewController.m in Sources */,
+				EEBE898F42756281BF24808E /* MyModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

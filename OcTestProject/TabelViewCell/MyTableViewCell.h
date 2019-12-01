@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class MyResult;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyTableViewCell : UITableViewCell
 - (void)bind:(id)data;
+
+- (void)bindData:(MyResult *)result;
 @end
 
 NS_ASSUME_NONNULL_END
