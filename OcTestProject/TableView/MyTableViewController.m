@@ -14,10 +14,10 @@
 
 @interface MyTableViewController ()
 
+@property (nonatomic, strong) MyModel *model;
 @end
 
 @implementation MyTableViewController
-MyModel *model;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,12 @@ MyModel *model;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellType1"];
 
-    self.initData;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self initData];
 }
 
 - (void)initData {
@@ -43,6 +48,7 @@ MyModel *model;
 //    manager.responseSerializer = AFHTTPResponseSerializer.serializer;
     manager.responseSerializer = AFJSONResponseSerializer.serializer;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+    
     NSURLSessionDataTask *task = [manager GET:url
                                    parameters:dictionary
                                      progress:^(NSProgress *downloadProgress) {
@@ -51,10 +57,10 @@ MyModel *model;
                                       success:^(NSURLSessionDataTask *task, id responseObject) {
                                           NSLog(@"test task %@", task);
 //                                          NSLog(@"test responseObject %@", responseObject);
-//                                          [MTLJSONAdapter modelOfClass:NSObject.class fromJSONDictionary:responseObject error:nil];
-                                          model = [MyModel fromJSONDictionary:responseObject];
-                                          NSLog(@"responseObject %@", model);
-
+        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+                                          self.model = [MTLJSONAdapter modelOfClass:MyModel.class fromJSONDictionary:dic error:nil];
+        //                                          NSLog(@"responseObject %@", model);
+                                          [self.tableView reloadData];
                                       }
                                       failure:^(NSURLSessionDataTask *task, NSError *error) {
                                           NSLog(@"test task %@", task);
@@ -74,7 +80,7 @@ MyModel *model;
     if (section == 0) {
         return 3;
     } else {
-        return model.body.result.count;
+        return self.model.body.result.count;
     }
 }
 
@@ -85,7 +91,7 @@ MyModel *model;
     if (indexPath.section == 0) {
         return cell;
     }
-    NSArray<MyResult *> *array = model.body.result;
+    NSArray<MyResult *> *array = self.model.body.result;
     MyResult *curModel = array[(NSUInteger) indexPath.row];
     [cell bindData:curModel];
     return cell;

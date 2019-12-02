@@ -33,7 +33,8 @@
 }
 
 - (void)bindData:(MyResult *)result {
-    _label.text = [NSString stringWithFormat:
-            @"%li ,%@ ,%li ,%@", result.goodsID, result.productName, result.createTime, result.advanceFloatView.title];
+//    _label.text = [NSString stringWithFormat:
+////            @"%li ,%@ ,%li ,%@", result.goodsID, result.productName, result.createTime, result.advanceFloatView.title]
+//            @",%@ ,%li ,%@", [result productName], result.createTime, result.advanceFloatView.title];
 }
 @end
