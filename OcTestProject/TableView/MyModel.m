@@ -6,12 +6,7 @@
 
 @implementation MyModel
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-//    return nil;
-    return @{
-            @"code": @"code",
-            @"body": @"body",
-            @"msg": @"msg"
-    };
+    return nil;
 }
 
 + (NSValueTransformer *)bodyJSONTransformer {
@@ -23,16 +18,11 @@
 
 @implementation MyBody
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-//    return nil;
-    return @{
-            @"result": @"result",
-            @"totalPage": @"totalPage",
-            @"pageNo": @"pageNo"
-    };
+    return nil;
 }
 
-+ (NSValueTransformer *)resultJSONTransFormer {
-    NSLog(@"resultJSONTransFormer");
++ (NSValueTransformer *)resultJSONTransformer {
+    NSLog(@"1111111111111");
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MyResult.class];
 //    return [MTLJSONAdapter arrayTransformerWithModelClass:MyResult.class];
 }
@@ -42,33 +32,10 @@
 @implementation MyResult
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return nil;
-//    return @{
-//            @"goodsID": @"goodsID",
-//            @"applyCount": @"applyCount",
-//            @"advanceFloatView": @"advanceFloatView",
-//            @"productName": @"productName",
-//            @"applyID": @"applyID",
-//            @"skuPropertyValue": @"skuPropertyValue",
-//            @"buttonType": @"buttonType",
-//            @"imageURL": @"imageURL",
-//            @"goodsTypeStr": @"goodsTypeStr",
-//            @"refundAmount": @"refundAmount",
-//            @"unitPrice": @"unitPrice",
-//            @"buyCount": @"buyCount",
-//            @"orderItemID": @"orderItemID",
-//            @"showAmount": @"showAmount",
-//            @"applyStatusDesc": @"applyStatusDesc",
-//            @"sort": @"sort",
-//            @"itemPayAmount": @"itemPayAmount",
-//            @"createTime": @"createTime",
-//            @"redSpot": @"redSpot",
-//            @"applyStatus": @"applyStatus"
-//
-//    };
 }
 
 + (NSValueTransformer *)advanceFloatViewJSONTransformer {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:MyAdvanceFloatView.class];
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:MyAdvanceFloatView.class];
 //    return [MTLJSONAdapter dictionaryTransformerWithModelClass:MyAdvanceFloatView.class];
 }
 
@@ -76,12 +43,7 @@
 
 @implementation MyAdvanceFloatView
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-//    return nil;
-    return @{
-            @"buttonDesc": @"buttonDesc",
-            @"refundFloatDesc": @"refundFloatDesc",
-            @"title": @"title"
-    };
+    return nil;
 }
 
 @end
