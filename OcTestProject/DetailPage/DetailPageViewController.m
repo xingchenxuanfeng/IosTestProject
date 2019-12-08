@@ -9,7 +9,8 @@
 #import "DetailPageViewController.h"
 
 @interface DetailPageViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property(weak, nonatomic) IBOutlet UILabel *label;
+@property(nonatomic, copy) void (^callback)(NSString *, NSString *);
 
 @end
 
@@ -19,10 +20,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"detail";
+    NSLog(@"sendText%@", self.receiveText);
 }
+
 - (IBAction)btnClick:(id)sender {
-    [self.navigationController pushViewController:DetailPageViewController .alloc.init animated:true];
+//    [self.navigationController pushViewController:DetailPageViewController.alloc.init animated:true];
+    [self.navigationController popViewControllerAnimated:true];
+    self.callback(@"aaaa1", @"a2222");
 }
+
+- (void)setCallback:(NSString *)arg1 callback:(void (^)(NSString *arg1, NSString *arg2))callback {
+    NSLog(arg1);
+    self.callback = callback;
+}
+
 /*
 #pragma mark - Navigation
 

@@ -41,7 +41,15 @@
     _label.text = currentTimes;
 
 //    [self.navigationController pushViewController:DetailPageViewController.alloc.init animated:true];
-    [self.navigationController pushViewController:MyTableViewController.alloc.init animated:true];
+    DetailPageViewController *listController = DetailPageViewController.alloc.init;
+
+    listController.receiveText = @"sendText";
+
+    [listController setCallback:@"test1111111" callback:^(NSString *arg1, NSString *arg2) {
+        NSLog(@"1  %@,2  %@", arg1, arg2);
+    }];
+
+    [self.navigationController pushViewController:listController animated:true];
 }
 
 + (NSString *)getCurrentTimes {
