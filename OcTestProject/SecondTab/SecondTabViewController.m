@@ -9,6 +9,7 @@
 #import "SecondTabViewController.h"
 #import "DetailPageViewController.h"
 #import "MyTableViewController.h"
+#import "OcTestProject-Swift.h"
 
 @interface SecondTabViewController ()
 @property(weak, nonatomic) IBOutlet UILabel *label;
@@ -49,7 +50,14 @@
         NSLog(@"1  %@,2  %@", arg1, arg2);
     }];
 
-    [self.navigationController pushViewController:listController animated:true];
+//    MySwiftClass test=[[MySwiftClass alloca]init];
+    MySwiftViewController *test = [[MySwiftViewController alloc] init];
+    NSString *swiftString = [test swiftTestWithArg:@"sssssssssssssss"];
+
+    NSLog(@"swiftString hhhhhhhhhhh: %@", swiftString);
+    [test gotoDetailPageWithController:self];
+
+//    [self.navigationController pushViewController:listController animated:true];
 }
 
 + (NSString *)getCurrentTimes {

@@ -15,6 +15,7 @@
 		570AE3A82389769A00C29753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570AE3A72389769A00C29753 /* Assets.xcassets */; };
 		570AE3AB2389769A00C29753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570AE3A92389769A00C29753 /* LaunchScreen.storyboard */; };
 		570AE3AE2389769A00C29753 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 570AE3AD2389769A00C29753 /* main.m */; };
+		5781AD7D239CF6960051FDEC /* MySwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781AD7C239CF6960051FDEC /* MySwiftViewController.swift */; };
 		57C2893E238AA9300000CAE9 /* DetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C2893C238AA9300000CAE9 /* DetailPageViewController.m */; };
 		57C2893F238AA9300000CAE9 /* DetailPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C2893D238AA9300000CAE9 /* DetailPageViewController.xib */; };
 		57C28943238AABB80000CAE9 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C28941238AABB80000CAE9 /* MyTableViewController.m */; };
@@ -40,6 +41,8 @@
 		570AE3AA2389769A00C29753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		570AE3AC2389769A00C29753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		570AE3AD2389769A00C29753 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5781AD7B239CF6950051FDEC /* OcTestProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OcTestProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		5781AD7C239CF6960051FDEC /* MySwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySwiftViewController.swift; sourceTree = "<group>"; };
 		57C2893B238AA9300000CAE9 /* DetailPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailPageViewController.h; sourceTree = "<group>"; };
 		57C2893C238AA9300000CAE9 /* DetailPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailPageViewController.m; sourceTree = "<group>"; };
 		57C2893D238AA9300000CAE9 /* DetailPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPageViewController.xib; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		570AE39A2389769800C29753 /* OcTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				5781AD7A239CF3E60051FDEC /* SwiftPackage */,
 				57C28946238ACAE90000CAE9 /* TabelViewCell */,
 				57C28945238ABDF40000CAE9 /* TableView */,
 				57C2893A238AA8F50000CAE9 /* DetailPage */,
@@ -130,6 +134,15 @@
 				570AE3AD2389769A00C29753 /* main.m */,
 			);
 			path = OcTestProject;
+			sourceTree = "<group>";
+		};
+		5781AD7A239CF3E60051FDEC /* SwiftPackage */ = {
+			isa = PBXGroup;
+			children = (
+				5781AD7C239CF6960051FDEC /* MySwiftViewController.swift */,
+				5781AD7B239CF6950051FDEC /* OcTestProject-Bridging-Header.h */,
+			);
+			path = SwiftPackage;
 			sourceTree = "<group>";
 		};
 		57C2893A238AA8F50000CAE9 /* DetailPage */ = {
@@ -218,6 +231,7 @@
 				TargetAttributes = {
 					570AE3972389769800C29753 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -312,6 +326,7 @@
 				570AE3AE2389769A00C29753 /* main.m in Sources */,
 				570AE3A02389769800C29753 /* SceneDelegate.m in Sources */,
 				57C28943238AABB80000CAE9 /* MyTableViewController.m in Sources */,
+				5781AD7D239CF6960051FDEC /* MySwiftViewController.swift in Sources */,
 				EEBE898F42756281BF24808E /* MyModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +468,7 @@
 			baseConfigurationReference = A0696E37A9C08C41CC282DD7 /* Pods-OcTestProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OcTestProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,6 +477,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xc.OcTestProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OcTestProject/SwiftPackage/OcTestProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -470,6 +489,7 @@
 			baseConfigurationReference = FB4A938C6B443CD54BEC54F1 /* Pods-OcTestProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OcTestProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,6 +498,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xc.OcTestProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OcTestProject/SwiftPackage/OcTestProject-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

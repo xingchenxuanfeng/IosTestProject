@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"detail";
-    NSLog(@"sendText%@", self.receiveText);
+    NSLog(@"sendText:%@", self.receiveText);
 }
 
 - (IBAction)btnClick:(id)sender {
